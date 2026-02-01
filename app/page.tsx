@@ -11,8 +11,10 @@ export default function Home() {
   return (
     <div className="h-screen bg-zinc-950 flex">
       {/* Chart Area - Left 80% */}
-      <main className="flex-1 p-6">
-        <CoinChart coin={selectedCoin} />
+      <main className="flex-1 p-6 flex flex-col">
+        <div className="flex-1 min-h-0">
+          <CoinChart coin={selectedCoin} />
+        </div>
       </main>
 
       {/* Watchlist Sidebar - Right 20% */}

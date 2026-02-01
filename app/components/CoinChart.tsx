@@ -144,8 +144,8 @@ export function CoinChart({ coin }: CoinChartProps) {
     };
 
     return (
-      <div>
-        <div className="flex items-center justify-between mb-6">
+      <div className="h-full flex flex-col">
+        <div className="flex items-center justify-between mb-4 flex-shrink-0">
           <div>
             <div className="flex items-center gap-3 mb-1">
               <h2 className="text-2xl font-bold text-zinc-100">{coin.name}</h2>
@@ -180,13 +180,15 @@ export function CoinChart({ coin }: CoinChartProps) {
             ))}
           </div>
         </div>
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${width} ${height}`}
-          className="w-full cursor-crosshair"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="flex-1 min-h-0">
+          <svg
+            ref={svgRef}
+            viewBox={`0 0 ${width} ${height}`}
+            className="w-full h-full cursor-crosshair"
+            preserveAspectRatio="xMidYMid meet"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
           <defs>
             <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={strokeColor} stopOpacity="0.3" />
@@ -281,7 +283,8 @@ export function CoinChart({ coin }: CoinChartProps) {
               </text>
             </>
           )}
-        </svg>
+          </svg>
+        </div>
       </div>
     );
   };
